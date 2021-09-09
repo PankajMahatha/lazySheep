@@ -16,6 +16,18 @@ app.get('/contact',(req,res) => {
     res.sendFile(path.join(__dirname + '/public/contact.html'))
 })
 
+// New api to give my say hello with name
+app.get('/say-hello', (req, res) => {
+    const queryName = req.query.name;
+
+    const str = `Hello ${queryName}`;
+
+    res.json({
+        message: 'success',
+        data: str,
+    });
+});
+
 app.get('/post',(req,res) => {
     res.sendFile(path.join(__dirname + '/public/post.html'))
 })
